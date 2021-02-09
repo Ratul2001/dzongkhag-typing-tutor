@@ -359,7 +359,7 @@ export default function Competition(props) {
                 <div className="lesson-summary">
                   <div className="lesson-summary-content">
                     <h2>{t('competitioncompleted')}</h2>
-                        <h4>Your score</h4>
+                        <h4>{t('yourscore')}</h4>
                         <div className="scorevalue"><span>{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
                         <h4>Time taken</h4>
                         <div>{timeTaken}</div>
