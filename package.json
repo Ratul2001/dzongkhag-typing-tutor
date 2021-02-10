@@ -30,7 +30,7 @@
     ]
   },
   "build": {
-    "productName": "Dzongkhag Typing Tutor",
+    "productName": "Dzongkha Typing Tutor",
     "appId": "bt.dzongkha.typingtutor",
     "files": [
       "dist/",
