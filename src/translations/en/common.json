@@ -2,7 +2,7 @@
     "title":"Dzongkha Typing Tutor",
     "welcome": "Welcome to Dzongkhag Typing Tutor",
     "instruction": "Make sure to select Dzongkha keyboard and put off the Caps Lock key",
-    "language":"Language",
+    "language":"Language :",
     "language.dzongkha":"རྫོང་ཁ།",
     "language.english":"English",
     "home":"Home",
@@ -53,9 +53,9 @@
     "game6": "Game 6",
     "game7": "Game 7",
     "game8": "Game 8",
-    "speedlabel": "Cpm",
-    "errors": "Errors",
-    "accuracy": "Accuracy",
+    "speedlabel": "Cpm:",
+    "errors": "Errors:",
+    "accuracy": "Accuracy:",
     "bodyparts": "Parts of Body",
     "fruits": "Fruits",
     "vegetables": "Vegetables",
@@ -83,5 +83,7 @@
     "tsangmo3": "Tsangmo 3",
     "lozey1": "Lozey 1",
     "lozey2": "Lozey 2",
-    "lozey3": "Lozey 3"
+    "lozey3": "Lozey 3",
+    "timetaken":"Time Taken",
+    "yourscore":"Your Score"
 }

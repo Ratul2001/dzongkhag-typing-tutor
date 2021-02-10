@@ -162,12 +162,12 @@ function MainMenu(props) {
                 <NavDropdown.Item as={Link} to="/advanced/tsangmo/tsangmo1/test">{t("test")}</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title={t("tsangmo2")} id="" className="dropdown-submenu-level-2">
-                <NavDropdown.Item as={Link} to="/advance/tsangmo/tsangmo2/practice">{t("practice")}</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/advance/tsangmo/tsangmo2/test">{t("test")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/advanced/tsangmo/tsangmo2/practice">{t("practice")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/advanced/tsangmo/tsangmo2/test">{t("test")}</NavDropdown.Item>
               </NavDropdown>
               <NavDropdown title={t("tsangmo3")} id="" className="dropdown-submenu-level-2">
-                <NavDropdown.Item as={Link} to="/advance/tsangmo/tsangmo3/practice">{t("practice")}</NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/advance/tsangmo/tsangmo3/test">{t("test")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/advanced/tsangmo/tsangmo3/practice">{t("practice")}</NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/advanced/tsangmo/tsangmo3/test">{t("test")}</NavDropdown.Item>
               </NavDropdown>
             </NavDropdown>
             <NavDropdown title={t("lozey")} id="" className="dropdown-submenu-level-1">
@@ -241,9 +241,9 @@ function MainMenu(props) {
             <Nav.Link as={Link} to="/basic/numbers/game">{t("numbers")}</Nav.Link>
           </NavDropdown>
           <NavDropdown title={t("competitions")} id="basic-nav-dropdown">
-            <Nav.Link as={Link} to="/competition/basic">{t("basic")}</Nav.Link>
-            <Nav.Link as={Link} to="/competition/intermediate">{t("intermediate")}</Nav.Link>
-            <Nav.Link as={Link} to="/competition/advance">{t("advance")}</Nav.Link>
+            <Nav.Link as={Link} to="/competition/basic">{t("basiccompetition")}</Nav.Link>
+            <Nav.Link as={Link} to="/competition/intermediate">{t("intermediatecompetition")}</Nav.Link>
+            <Nav.Link as={Link} to="/competition/advance">{t("advancecompetition")}</Nav.Link>
           </NavDropdown>
         </Nav>
     </>

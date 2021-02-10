@@ -219,7 +219,6 @@ export default function Competition(props) {
 
       case "ddcuchen-font":
         localStorage.setItem("font", "ddcuchen");
-        props.changeFont();
         showNextCharHint(fontPreference);
         if(localStorage.getItem('lng') == "dz")
           setFontPreference("ddcuchen");
@@ -231,7 +230,6 @@ export default function Competition(props) {
         localStorage.setItem("font", "wangdi29");
 
         props.changeFont();
-        showNextCharHint(fontPreference);
         if(localStorage.getItem('lng') == "dz")
           setFontPreference("wangdi29");
         else
@@ -240,7 +238,6 @@ export default function Competition(props) {
 
       case "jomolhari-font":
         localStorage.setItem("font", "jomolhari");
-        props.changeFont();
         showNextCharHint(fontPreference);
         if(localStorage.getItem('lng') == "dz"){
           setFontPreference("jomolhari");
@@ -353,7 +350,7 @@ export default function Competition(props) {
       </Row>
       <Row>
         <Col>
-          <div className={`playground `+fontPreference}>
+          <div className={`playground`}>
           {(completed) &&
               <>
                 <div className="lesson-summary">
@@ -363,12 +360,11 @@ export default function Competition(props) {
                         <div className="scorevalue"><span>{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
                         <h4>Time taken</h4>
                         <div>{timeTaken}</div>
-
                   </div>
                 </div>
               </>
             }
-            <div className="lesson-content-box">
+            <div className={`lesson-content-box `+fontPreference}>
               <div className="lesson-content">
                 <div className="Character">
                   {(incomingChars!="") &&

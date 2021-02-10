@@ -101,7 +101,7 @@ export default function Lesson(props) {
   // //preferences
   const showkeyboardPref = (localStorage.getItem("showkeyboard") == 0)? 0:1;
   const showFingersPref = (localStorage.getItem("showfingers") == 0)? 0:1;
-  const keyboardColorPref = (localStorage.getItem("keyboardcolor") == 0)? 0:1;
+  const keyboardColorPref = (localStorage.getItem("keyboardcolor") == 0)? 1:0;
   const playSoundPref = (localStorage.getItem("playsound") == 0)? 0:1;
   const playVoiceSoundPref = (localStorage.getItem("playvoice") == 0)? 0:1;
   const fontPref = (localStorage.getItem("font"))? localStorage.getItem("font"):"Wangdi29";
@@ -333,10 +333,10 @@ export default function Lesson(props) {
                 <div className="lesson-summary">
                   <div className="lesson-summary-content">
                     <h2>{t('lessoncomplete')}</h2>
-                        <h4>Your score</h4>
+                        <h4>{t('yourscore')}</h4>
                         <div className="scorevalue"><span>{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
-                        <h4>Time taken</h4>
-                        <div>{timeTaken}</div>
+                        <h4>{t('timetaken')}</h4>
+                        <div>{convertToUnicodeNumber(timeTaken)}</div>
 
                   </div>
                 </div>
@@ -363,13 +363,13 @@ export default function Lesson(props) {
               <div className="col-6">
                 <div className="row summary">
                   <div className="col-4" >
-                    <span className="speedlabel">{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span>
+                    <span className="speedlabel">{t('speedlabel')}</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span>
                   </div>
                   <div className="col-3">
-                    <span className="errorlabel">{t("errors")}:</span> <span className="errorvalue">{convertToUnicodeNumber(errors)}</span>
+                    <span className="errorlabel">{t("errors")}</span> <span className="errorvalue">{convertToUnicodeNumber(errors)}</span>
                   </div>
                   <div className="col-5">
-                    <span className="accuracylabel">{t("accuracy")}:</span> <span className="accuracyvalue">{convertToUnicodeNumber(accuracy)} %</span>
+                    <span className="accuracylabel">{t("accuracy")}</span> <span className="accuracyvalue">{convertToUnicodeNumber(accuracy)} %</span>
                   </div>
                 </div>
               </div>

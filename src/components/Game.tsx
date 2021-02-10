@@ -5,6 +5,8 @@ import { Button } from "react-bootstrap";
 import { GameChars } from '../utils/GameCharacters';
 import useKeyPress from '../hooks/useKeyPress';
 import Header from "./Header";
+import { useTranslation } from "react-i18next";
+
 
 import useSound from 'use-sound';
 import correctSound from '../sounds/bubblepop.mp3';
@@ -21,6 +23,7 @@ export default function Game(props){
 
     // console.log());
     const gameContent = GameChars(props.lessonContent);
+    const {t, i18n} = useTranslation();
     const [allCharacters, setAllCharacters] = useState(gameContent);
 
     const [characters, setCharacters]= useState([]);
@@ -254,8 +257,8 @@ export default function Game(props){
       <>
         <div className="game-container">
           <div className="gameinfo">
-              <div className="score">Your Score: {finalScore}</div>
-              <div className="countdowntimer">Time Elapsed:  &nbsp;
+              <div className="score">{t('yourscore')} {finalScore}</div>
+              <div className="countdowntimer">{t('timetaken')}  &nbsp;
                   {!completeGame &&
                       <Timer start={startTimer}  />
                   }
@@ -295,11 +298,11 @@ export default function Game(props){
                       }
                     <div>
                         <br/>
-                        <h4>Your score</h4>
+                        <h4>{t('yourscore')}</h4>
 
                         <div className="scorevalue">{finalScore}</div>
 
-                        <h4>Time taken</h4>
+                        <h4>{t('timetaken')}</h4>
 
                         <div>{totalTime}</div>
                     </div>

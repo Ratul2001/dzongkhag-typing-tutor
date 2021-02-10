@@ -85,7 +85,7 @@ export default function DzongkhaKeyboard(props) {
     // let currentCharacter = props.incomingChar;
 
     let currentCharacter = keyHighlighter(props.incomingChar);
-    let themeClass = (localStorage.getItem('keyboardcolor') === "1")? "hg-theme-default hg-layout-default myTheme":"hg-theme-default hg-layout-default";
+    let themeClass = (localStorage.getItem('keyboardcolor') == 0) ? "hg-theme-default hg-layout-default":"hg-theme-default hg-layout-default myTheme";
 
 
     return (

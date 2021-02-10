@@ -26,7 +26,7 @@ export default function LanguageSwitcher(props) {
   return (
     <Suspense fallback="loading">
           <div className={`language-switcher `}>
-          <span>{t('language')} : </span>
+          <span>{t('language')} </span>
           <span className="dzongkha" onClick={() => onSelectLang("DZ")}>རྫོང་ཁ།</span> <span>|</span> <span className="english" onClick={() => onSelectLang("EN")}>EN</span>
           </div>
     </Suspense>

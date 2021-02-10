@@ -1,6 +1,6 @@
 {
   "name": "dzongkha-typing-tutor",
-  "productName": "DzongkhagTypingTutor",
+  "productName": "DzongkhaTypingTutor",
   "description": "Dzongkha Typing Tutor",
   "scripts": {
     "build": "concurrently \"yarn build:main\" \"yarn build:renderer\"",
