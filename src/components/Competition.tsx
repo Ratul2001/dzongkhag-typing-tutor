@@ -117,6 +117,11 @@ export default function Competition(props) {
 
   const [accuracy, setAccuracy] = useState(0);
   const [typedChars, setTypedChars] = useState('');
+
+  const [keystrokes, setKeystrokes] = useState(0);
+  const [wrongKeystrokes, setWrongKeystrokes] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
+
   const [completed, setCompleted] = useState(false);
 
   const [playCorrect] = useSound(correctSound);
@@ -265,14 +270,13 @@ export default function Competition(props) {
     if (!startTime) {
       setStartTime(currentTime());
     }
-
+    setKeystrokes(keystrokes+1);
     if(outgoingChars.length <= initialWords.length){
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
 
         if(playSoundPreference == 1)
           playCorrect();
-
           showNextCharHint(fontPreference);
         // let width = document.querySelector('.Character-out').offsetWidth;
 
@@ -312,6 +316,7 @@ export default function Competition(props) {
             );
         }
         else{
+            setWrongKeystrokes(wrongKeystrokes+1);
             let errorcount = errors + 1;
             setErrors(errorcount);
             setAccuracy(
@@ -325,6 +330,9 @@ export default function Competition(props) {
         if(updatedOutgoingChars.length == totalCharacterCount){
           setIncomingChars("");
           setCompleted(true);
+          const durationInMinutes = (currentTime() - startTime) / 60000.0;
+          setTotalScore(((keystrokes - wrongKeystrokes)/durationInMinutes).toFixed(2));
+
           if(playSoundPreference == 1)
             playSuccess();
         }
@@ -356,10 +364,8 @@ export default function Competition(props) {
                 <div className="lesson-summary">
                   <div className="lesson-summary-content">
                     <h2>{t('competitioncompleted')}</h2>
-                        <h4>{t('yourscore')}</h4>
-                        <div className="scorevalue"><span>{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
-                        <h4>Time taken</h4>
-                        <div>{timeTaken}</div>
+                    <div><span>{t('yourscore')} </span> <span>{convertToUnicodeNumber(totalScore)}</span></div>
+                    <div><span>{t('timetaken')}</span> {convertToUnicodeNumber(timeTaken)}</div>
                   </div>
                 </div>
               </>
