@@ -88,6 +88,9 @@ export default function Lesson(props) {
   const [typedChars, setTypedChars] = useState('');
   const [completed, setCompleted] = useState(false);
   const [ka, setKa] = useState(vocalSound(currentChar));
+  const [keystrokes, setKeystrokes] = useState(0);
+  const [wrongKeystrokes, setWrongKeystrokes] = useState(0);
+  const [totalScore, setTotalScore] = useState(0);
  // console.log(ka);
   var [playCorrect] = useSound(vocalSound(currentChar, true));
   const [playInCorrect] = useSound(inCorrectSound);
@@ -246,9 +249,11 @@ export default function Lesson(props) {
   }
 
   useKeyPress(key => {
+
     if (!startTime) {
       setStartTime(currentTime());
     }
+    setKeystrokes(keystrokes+1);
     if(outgoingChars.length <= initialWords.length){
       let updatedOutgoingChars = outgoingChars;
       let updatedIncomingChars = incomingChars;
@@ -288,6 +293,10 @@ export default function Lesson(props) {
         if(updatedOutgoingChars.length == totalCharacterCount){
           setIncomingChars("");
           setCompleted(true);
+
+          const durationInMinutes = (currentTime() - startTime) / 60000.0;
+
+          setTotalScore(((keystrokes - wrongKeystrokes)/durationInMinutes).toFixed(2));
           if(playSoundPreference == 1)
             playSuccess();
         }
@@ -313,6 +322,9 @@ export default function Lesson(props) {
         ),
       );
     }
+    else{
+      setWrongKeystrokes(wrongKeystrokes+1);
+    }
   });
   return (
     <>
@@ -320,7 +332,7 @@ export default function Lesson(props) {
         <Col>
           <div className={`d-flex justify-content-between lessonName `}>
               <div className="p-2"></div>
-              <div className="p-2">{t('lesson1')}</div>
+              <div className="p-2">{t('lesson')}</div>
               <div className="p-2"></div>
           </div>
         </Col>
@@ -333,11 +345,9 @@ export default function Lesson(props) {
                 <div className="lesson-summary">
                   <div className="lesson-summary-content">
                     <h2>{t('lessoncomplete')}</h2>
-                        <h4>{t('yourscore')}</h4>
-                        <div className="scorevalue"><span>{t('speedlabel')}:</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
-                        <h4>{t('timetaken')}</h4>
-                        <div>{convertToUnicodeNumber(timeTaken)}</div>
-
+                      <div><span>{t('yourscore')} </span> <span>{convertToUnicodeNumber(totalScore)}</span></div>
+                      <div className="scorevalue"><span>{t('speedlabel')}</span> <span className="speedvalue">{convertToUnicodeNumber(cpm)}</span></div>
+                      <div><span>{t('timetaken')}</span> {convertToUnicodeNumber(timeTaken)}</div>
                   </div>
                 </div>
               </>
